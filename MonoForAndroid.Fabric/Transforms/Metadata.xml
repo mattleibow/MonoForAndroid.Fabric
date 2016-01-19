@@ -1,0 +1,24 @@
+﻿<metadata>
+  	<!-- Rename classes with the same name as namespace -->
+	<attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/class[@name='Settings']" name="managedName">FabricSettings</attr>
+
+  	<!-- Rename static internal classes with the same name as a property of that class -->
+	<attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='AsyncTask.SerialExecutor']" name="managedName">SerialExecutorImpl</attr>
+
+	<!---Rename member variables that result in duplicate names (Names with underscores are changed to remove underscores and converted into PascalCase) -->
+	<attr path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='MAX_FILES_TO_KEEP']" name="name">DefaultMaxFilesToKeep</attr>
+
+	<!-- Remove member variables that backed public Properties (causes duplicates) -->
+	<remove-node path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='lastRollOverTime']"/>
+	<remove-node path="/api/package[@name='io.fabric.sdk.android.services.network']/class[@name='HttpRequest']/field[@name='url']"/>
+
+  	<!-- Rename member variables or properties that conflict with their enclosing type's name -->
+	<attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='PriorityTask']/method[@name='getDependencies' and count(parameter)=0]" name="name">DependencyCollection</attr>
+	<attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='PriorityAsyncTask']/method[@name='getDependencies' and count(parameter)=0]" name="name">DependencyCollection</attr>
+	<attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='PriorityFutureTask']/method[@name='getDependencies' and count(parameter)=0]" name="name">DependencyCollection</attr>
+
+	<!--- Change visibility of classes, member names, or properties from private to public -->
+	<attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/class[@name='AbstractAppSpiCall']" name="visibility">public</attr>
+	<attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/class[@name='AppIconSettingsData']" name="visibility">public</attr>
+
+</metadata>

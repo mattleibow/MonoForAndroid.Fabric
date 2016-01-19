@@ -1,0 +1,41 @@
+﻿<metadata>
+	<!--- Rename namespaces (optional) -->
+<!--	<attr path="/api/package[@name='com.twitter.sdk.android.core']" name="managedName">Twitter.Sdk.Android.Core</attr> -->
+
+	<!--- Rename properties that conflict with their enclosing class name -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Coordinates']/field[@name='coordinates']" name="name">CoordinatesProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterApiConstants.Errors']/field[@name='ERRORS']" name="name">ErrorsProperty</attr>
+
+	<!--- Fix error with subclass of abstract class implementing method and hiding parent method (change name of subclass method and call new method name from a partial class wrapper) -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='TwitterCore']/method[@name='doInBackground']" name="name">DoInBackgroundImpl</attr>
+
+	<!--- Change visibility of private classes -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Entity']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.oauth']/class[@name='OAuthService']" name="visibility">public</attr>
+
+	<!--- Fix errors related to covariance of return types -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='AppSession.Serializer']/method[@name='deserialize']" name="managedReturn">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='TwitterSession.Serializer']/method[@name='deserialize']" name="managedReturn">Java.Lang.Object</attr>
+
+	<!--- Fix errors related to covariance of parameter types -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='ScribeEvent.Transform']/method[@name='toBytes']/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
+
+	<!-- Remove member variables that backed public Properties (causes duplicates) -->
+	<remove-node path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='SessionMonitor']/field[@name='monitorState']"/>
+	<remove-node path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Tweet']/field[@name='id']"/>
+	<remove-node path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='User']/field[@name='id']"/>
+
+	<!---Rename member variables that result in duplicate names (Names with underscores are changed to remove underscores and converted into PascalCase) -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterCollection']/field[@name='metadata']" name="name">MetadataProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterCollection.Metadata']/field[@name='position']" name="name">PositionProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterCollection.TimelineItem']/field[@name='tweetItem']" name="name">TweetItemProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterApi']/field[@name='BASE_HOST_URL']" name="name">TwitterBaseHostUrl</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='ScribeConfig']/field[@name='BASE_URL']" name="name">ScribeConfigBaseUrl</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='ScribeItem']/field[@name='cardEvent']" name="name">CardEventProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='ScribeItem']/field[@name='mediaDetails']" name="name">MediaDetailsProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='SyndicatedSdkImpressionEvent']/field[@name='externalIds']" name="name">ExternalIdsProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='SyndicationClientEvent']/field[@name='externalIds']" name="name">ExternalIdsProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='MediaEntity']/field[@name='sizes']" name="name">SizesProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Place']/field[@name='boundingBox']" name="name">BoundingBoxProperty</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.services.params']/class[@name='Geocode']/field[@name='distance']" name="name">DistanceProperty</attr>
+</metadata>
