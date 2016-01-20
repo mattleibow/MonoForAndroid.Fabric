@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">DigitsDemo</string>
+
+	<!--- Fabric -->
+    <string name="fabric_consumer_key">consumer_key</string>
+    <string name="fabric_consumer_secret">consumer_secret</string>
+</resources>

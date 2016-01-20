@@ -1,0 +1,19 @@
+﻿<metadata>
+	<!--- Change visibility of classes, member names, or properties from private to public -->
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsControllerImpl']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsErrorCodes']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActivityDelegateImpl']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='AuthConfig']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='CountryInfo']" name="visibility">public</attr>
+
+	<!--- Fix error with subclass of abstract class implementing method and hiding parent method (change name of subclass method and call new method name from a partial class wrapper) -->
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='ContactsCallback']/method[@name='failure']" name="name">FailureImpl</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='ContactsCallback']/method[@name='success']" name="name">SuccessImpl</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='Digits']/method[@name='doInBackground']" name="name">DoInBackgroundImpl</attr>
+
+	<!--- Fix errors related to covariance of return types -->
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsSession.Serializer']/method[@name='deserialize']" name="managedReturn">Java.Lang.Object</attr>
+
+	<!--- Fix errors related to covariance of parameter types -->
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsSession.Serializer']/method[@name='serialize']/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
+</metadata>
